@@ -1,85 +1,84 @@
-# Budgeteer
 
-## Getting Started
+# Budgeteer 💰
+
+Budgeteer is a financial management application that helps users manage and monitor their expenses, earnings, and budgets efficiently. 📊
+
+## Features ✨
+
+- **Expense Tracking:** Monitor your spending habits by categorizing your expenses. 💸
+- **Earnings Tracking:** Keep an eye on your income sources. 💼
+- **Budget Planning:** Set budgets and plan your financial goals. 📝
+- **Visual Reports:** View your financial information with easy-to-understand charts and graphs. 📈
+
+## Screenshots 📸
+
+_(Place screenshots here)_
+
+---
+
+## Getting Started 🚀
+
+Follow these steps to run the project locally:
 
 1. **Clone the repository:**
 
    ```bash
-   git clone <https://github.com/tortugaum/budgeteer.git>
+   git clone <repository-url>
    cd budgeteer
    ```
 
-2. **Install the dependencies:**
+2. **Install dependencies:**
+
+   We recommend using Yarn for package management:
 
    ```bash
    yarn install
    ```
 
-3. **Set up your environment variables.** Create a `.env` file in the root directory and add the following:
+3. **Set up environment variables:**
 
-   ```
-   DATABASE_URL="sqlite://./dev.db"
-   JWT_SECRET="your-secret-key" # Change this to a strong secret
-   ```
-
-4. **Run the database migrations:**
+   Create a `.env.local` file in the root directory with the following variables:
 
    ```bash
-   npx prisma migrate dev --name init
+   DATABASE_URL=your-database-url
    ```
 
-5. **Start the development server:**
+4. **Run database migrations:**
+
+   ```bash
+   yarn prisma migrate dev
+   ```
+
+5. **Run the development server:**
 
    ```bash
    yarn dev
    ```
 
-6. **Open your browser and go to** [http://localhost:3000](http://localhost:3000).
+   The app will be available at `http://localhost:3000`. 🌐
 
-## Usage
+---
 
-1. **Login:** Use the credentials to log in to the application.
-   - ![Login Screen](![image](https://github.com/user-attachments/assets/d238a37e-3f56-4182-b23e-5be35630de16)
-)
+## API Routes 🔌
 
-2. **Dashboard:** Once logged in, you will see an overview of your financial data.
-   - ![Dashboard](![image](https://github.com/user-attachments/assets/aa76a1de-cc84-4924-b70b-f730491186f5)
-)
+- **POST /api/login:** Logs in the user with email and password.
+- **GET /api/expenses:** Retrieves the list of expenses.
+- **POST /api/expenses:** Adds a new expense.
+- **GET /api/earnings:** Retrieves the list of earnings.
+- **POST /api/earnings:** Adds a new earning.
+- **GET /api/expenses/group:** Retrieves a grouped breakdown of expenses by category.
 
-3. **Add Expenses:** You can add expenses through the provided form.
-   - ![Add Expense Screen](![image](https://github.com/user-attachments/assets/b9563264-bbe6-4aa1-b6c7-c1954916cf83)
-)
+---
 
-4. **Spending Breakdown:** Visualize your spending habits through pie charts.
-   - ![Spending Breakdown](![image](https://github.com/user-attachments/assets/4e52739c-47bb-4b5a-b4e3-650ac456307b)
-)
+## Technologies Used 🛠️
 
-## API Endpoints
+- **Next.js** - React framework for server-side rendering and static site generation.
+- **Prisma** - Database ORM for managing the database schema.
+- **Styled Components** - For styling the application with theme support.
+- **Recharts** - Library for visualizing financial data.
 
-### User Authentication
+---
 
-- **POST** `/api/auth/login`
-  - Request body: `{ "email": "user@example.com", "password": "your-password" }`
-  - Response: `{ "token": "your-auth-token", "user": { "id": "user-id", "email": "user@example.com" } }`
-
-### Expenses
-
-- **GET** `/api/expenses` - Fetch all expenses.
-- **POST** `/api/expenses` - Create a new expense.
-- **PUT** `/api/expenses` - Update an existing expense.
-- **DELETE** `/api/expenses` - Delete an expense.
-
-### Earnings
-
-- **GET** `/api/earnings` - Fetch all earnings.
-- **POST** `/api/earnings` - Create a new earning.
-- **PUT** `/api/earnings` - Update an existing earning.
-- **DELETE** `/api/earnings` - Delete an earning.
-
-## License
+## License 📜
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to the Next.js and Prisma teams for their excellent documentation and tools.
