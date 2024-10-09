@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Budgeteer
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   git clone <repository-url>
+   cd budgeteer
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install the dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   yarn install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Set up your environment variables.** Create a `.env` file in the root directory and add the following:
 
-## Learn More
+   ```
+   DATABASE_URL="sqlite://./dev.db"
+   JWT_SECRET="your-secret-key" # Change this to a strong secret
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the database migrations:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npx prisma migrate dev --name init
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Start the development server:**
 
-## Deploy on Vercel
+   ```bash
+   yarn dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Open your browser and go to** [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+1. **Login:** Use the credentials to log in to the application.
+   - ![Login Screen](![image](https://github.com/user-attachments/assets/d238a37e-3f56-4182-b23e-5be35630de16)
+)
+
+2. **Dashboard:** Once logged in, you will see an overview of your financial data.
+   - ![Dashboard](![image](https://github.com/user-attachments/assets/aa76a1de-cc84-4924-b70b-f730491186f5)
+)
+
+3. **Add Expenses:** You can add expenses through the provided form.
+   - ![Add Expense Screen](![image](https://github.com/user-attachments/assets/b9563264-bbe6-4aa1-b6c7-c1954916cf83)
+)
+
+4. **Spending Breakdown:** Visualize your spending habits through pie charts.
+   - ![Spending Breakdown](![image](https://github.com/user-attachments/assets/4e52739c-47bb-4b5a-b4e3-650ac456307b)
+)
+
+## API Endpoints
+
+### User Authentication
+
+- **POST** `/api/auth/login`
+  - Request body: `{ "email": "user@example.com", "password": "your-password" }`
+  - Response: `{ "token": "your-auth-token", "user": { "id": "user-id", "email": "user@example.com" } }`
+
+### Expenses
+
+- **GET** `/api/expenses` - Fetch all expenses.
+- **POST** `/api/expenses` - Create a new expense.
+- **PUT** `/api/expenses` - Update an existing expense.
+- **DELETE** `/api/expenses` - Delete an expense.
+
+### Earnings
+
+- **GET** `/api/earnings` - Fetch all earnings.
+- **POST** `/api/earnings` - Create a new earning.
+- **PUT** `/api/earnings` - Update an existing earning.
+- **DELETE** `/api/earnings` - Delete an earning.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to the Next.js and Prisma teams for their excellent documentation and tools.
