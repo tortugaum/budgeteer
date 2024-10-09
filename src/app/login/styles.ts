@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const LoginContainer = styled.div`
   padding: 20px;
-  background-color: ${({ theme }) =>
-    theme.colors.neutralBackground}; /* Light Gray */
+  background-color: ${({ theme }) => theme.colors.neutralBackground};
   border-radius: 8px;
 `;
 
@@ -14,7 +13,7 @@ export const FormGroup = styled.div`
 export const Label = styled.label`
   display: block;
   margin-bottom: 8px;
-  color: ${({ theme }) => theme.colors.textColor}; /* Dark Slate */
+  color: ${({ theme }) => theme.colors.textColor};
 `;
 
 export const Input = styled.input`
@@ -24,13 +23,13 @@ export const Input = styled.input`
   border-radius: 4px;
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.primaryColor}; /* Calm Blue */
+    border-color: ${({ theme }) => theme.colors.primaryColor};
     outline: none;
   }
 `;
 
 export const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.primaryColor}; /* Calm Blue */
+  background-color: ${({ theme }) => theme.colors.primaryColor};
   color: white;
   padding: 10px 15px;
   border: none;
@@ -38,14 +37,13 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) =>
-      theme.colors.secondaryAccent}; /* Warm Orange */
+    background-color: ${({ theme }) => theme.colors.secondaryAccent};
   }
 `;
 
 export const ErrorMessage = styled.div`
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.secondaryAccent}; /* Warm Orange */
+  color: ${({ theme }) => theme.colors.secondaryAccent};
 `;
 
 export const Container = styled.div`

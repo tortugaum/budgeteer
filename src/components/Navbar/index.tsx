@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link';
 import {
   FiHome,
   FiPieChart,
@@ -25,10 +25,9 @@ const Sidebar = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    // Clear authentication cookies or session data
     document.cookie =
-      'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Example of clearing cookie
-    // Redirect to login page after logout
+      'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
     router.push('/login');
   };
 
@@ -39,7 +38,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/'>
             {' '}
-            {/* Link to Overview */}
             <FiHome />
             Overview
           </Link>
@@ -47,7 +45,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/expense-tracker'>
             {' '}
-            {/* Link to Expenses */}
             <FiPieChart />
             Expenses
           </Link>
@@ -55,7 +52,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/income-tracker'>
             {' '}
-            {/* Link to Earnings */}
             <FiTrendingUp />
             Earnings
           </Link>
@@ -63,7 +59,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/budget-planning'>
             {' '}
-            {/* Link to Budgets */}
             <FiDollarSign />
             Budget
           </Link>
@@ -71,7 +66,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/reports'>
             {' '}
-            {/* Link to Reports */}
             <FiFileText />
             Reports
           </Link>
@@ -79,7 +73,6 @@ const Sidebar = () => {
         <NavItem>
           <Link href='/settings'>
             {' '}
-            {/* Link to Settings */}
             <FiSettings />
             Settings
           </Link>

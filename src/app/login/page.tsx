@@ -14,7 +14,7 @@ import {
 
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
-import axios from 'axios'; // Import axios for API requests
+import axios from 'axios';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -38,16 +38,13 @@ const LoginPage = () => {
     setError('');
 
     try {
-      // Send a POST request to validate credentials
       const response = await axios.post('/api/login', credentials);
       console.log('response', { response });
       if (response.status === 200) {
-        // Assuming the response contains an auth token
-        Cookies.set('authToken', response.data.token, { expires: 1 }); // Set cookie for 1 day
+        Cookies.set('authToken', response.data.token, { expires: 1 });
         router.push('/');
       }
     } catch (err) {
-      // Handle error response
       if (axios.isAxiosError(err) && err.response) {
         setError(err.response.data.message || 'Invalid username or password');
       } else {

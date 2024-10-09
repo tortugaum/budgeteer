@@ -3,18 +3,18 @@ import styled from 'styled-components';
 export const SidebarContainer = styled.div`
   width: 250px;
   height: 100vh;
-  background-color: ${({ theme }) => theme.colors.background}; // Light Gray
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   padding: 20px;
   position: fixed;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // Optional: add a shadow for depth
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 `;
 
 export const Logo = styled.h2`
-  color: ${({ theme }) => theme.colors.primary}; // Calm Blue
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 30px;
-  font-size: 24px; // Adjust size as needed
+  font-size: 24px;
 `;
 
 export const NavList = styled.ul`
@@ -26,34 +26,33 @@ export const NavItem = styled.li`
   display: flex;
   align-items: center;
   padding: 10px 0;
-  color: ${({ theme }) => theme.colors.text}; // Dark Slate
+  color: ${({ theme }) => theme.colors.text};
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) =>
-      theme.colors.accent}; // Mint Green on hover
+    background-color: ${({ theme }) => theme.colors.accent};
     border-radius: 5px;
   }
 
   svg {
     margin-right: 10px;
-    color: ${({ theme }) => theme.colors.primary}; // Calm Blue for icons
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const Footer = styled.div`
-  margin-top: auto; // Push the footer to the bottom
+  margin-top: auto;
 `;
 
 export const FooterText = styled.div`
   padding: 10px 0;
 
-  color: ${({ theme }) => theme.colors.text}; // Dark Slate
+  color: ${({ theme }) => theme.colors.text};
   font-size: 14px;
   text-align: center;
-  border-top: 1px solid ${({ theme }) => theme.colors.primary}; // Calm Blue border
+  border-top: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
 export const LogoutButtonWrapper = styled.div`

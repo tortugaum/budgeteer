@@ -1,4 +1,3 @@
-// components/BudgetPlanning.tsx
 import React, { useEffect, useState } from 'react';
 import {
   PlanningContainer,
@@ -32,7 +31,7 @@ const BudgetPlanning = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add the new budget to the list
+
     setBudgets([...budgets, { category, budget }]);
 
     createBudget();

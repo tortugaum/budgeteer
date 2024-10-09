@@ -1,21 +1,18 @@
-// app/api/auth/login/route.ts
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
-import prisma from '@/lib/prisma'; // Adjust the path according to your project structure
-import { sign } from 'jsonwebtoken'; // Use this to generate JWT token
+import prisma from '@/lib/prisma';
+import { sign } from 'jsonwebtoken';
 
-const secretKey = process.env.JWT_SECRET || 'your-secret-key'; // Ensure you have a secret key in your environment variables
+const secretKey = process.env.JWT_SECRET || 'your-secret-key';
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json(); // Parse the incoming request body
+  const { email, password } = await req.json();
 
   try {
-    // Find the user by email
     const user = await prisma.user.findUnique({
       where: { email },
     });
 
-    // If user not found, return error
     if (!user) {
       return NextResponse.json(
         { message: 'Invalid email or password' },
@@ -23,7 +20,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Compare provided password with stored hashed password
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
@@ -33,12 +29,10 @@ export async function POST(req: Request) {
       );
     }
 
-    // Generate JWT token (optional)
     const token = sign({ id: user.id, email: user.email }, secretKey, {
-      expiresIn: '1d', // Adjust token expiry as needed
+      expiresIn: '1d',
     });
 
-    // Return success response with token (or any other user info you need)
     return NextResponse.json(
       { token, user: { id: user.id, email: user.email } },
       { status: 200 }

@@ -8,7 +8,6 @@ export async function GET() {
   const totalEarnings = earnings.reduce((acc, item) => acc + item.amount, 0);
   const totalExpenses = expenses.reduce((acc, item) => acc + item.amount, 0);
 
-  // For spending breakdown, let's assume expenses are categorized
   const spendingBreakdown = expenses.reduce((acc, expense) => {
     const category = expense.category || 'Others';
     if (!acc[category]) {
@@ -19,7 +18,7 @@ export async function GET() {
   }, {});
 
   const transactions = await prisma.transaction.findMany({
-    orderBy: { date: 'desc' }, // Get recent transactions
+    orderBy: { date: 'desc' },
     take: 5,
   });
 

@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-// Get all budgets
 export async function GET() {
   const budgets = await prisma.budget.findMany();
   return NextResponse.json(budgets);
 }
 
-// Create a new budget
 export async function POST(req: Request) {
   const data = await req.json();
   const { name, totalAmount } = data;

@@ -25,7 +25,7 @@ const IncomeTracker = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add the new income to the list
+
     setIncomes([...incomes, { amount, source, date }]);
     createEarning();
 

@@ -49,6 +49,6 @@ export const ExpenseItem = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.text}; // Dark Slate
-  color: ${({ theme }) => theme.colors.text}; // Dark Slate
+  border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;

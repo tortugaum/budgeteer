@@ -23,7 +23,6 @@ Chart.register(
   ArcElement
 );
 
-// Types for the report breakdowns
 type ExpensesBreakdown = {
   category: string;
   amount: number;
@@ -56,10 +55,10 @@ const Reports = () => {
         setReportData({
           earnings: data.totalEarnings,
           expenses: data.totalExpenses,
-          budgets: data.totalBudgets, // If you have budgets, otherwise set it to 0
+          budgets: data.totalBudgets,
           expensesBreakdown: data.expensesBreakdown,
           earningsBreakdown: data.earningsBreakdown,
-          budgetsBreakdown: data.budgetsBreakdown || [], // Optional, in case of missing budget data
+          budgetsBreakdown: data.budgetsBreakdown || [],
         });
       })
       .catch((err) => console.error('Error fetching report data:', err));
@@ -68,7 +67,6 @@ const Reports = () => {
   const { earnings, expenses, budgets, expensesBreakdown, earningsBreakdown } =
     reportData;
 
-  // Expense and earnings labels and data for charting
   const expenseLabels = expensesBreakdown.map(
     (expense) => expense.category || 'Other'
   );

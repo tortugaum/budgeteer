@@ -1,36 +1,32 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import bcrypt from 'bcrypt'; // Import bcrypt for password hashing
+import bcrypt from 'bcrypt';
 
-// Fetch all users
 export async function GET() {
   const users = await prisma.user.findMany();
   return NextResponse.json(users);
 }
 
-// Create a new user
 export async function POST(req: Request) {
   const { name, email, password } = await req.json();
 
-  // Hash the password before saving it to the database
-  const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = await prisma.user.create({
     data: {
       name,
       email,
-      password: hashedPassword, // Save the hashed password
+      password: hashedPassword,
     },
   });
 
   return NextResponse.json(newUser);
 }
 
-// Update an existing user
 export async function PUT(req: Request) {
   const { id, name, email, password } = await req.json();
 
-  const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const updatedUser = await prisma.user.update({
     where: { id },

@@ -2,15 +2,13 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
 export async function GET() {
-  // Aggregate expenses by category
   const expensesBreakdown = await prisma.expense.groupBy({
     by: ['category'],
     _sum: {
-      amount: true, // Sum the amount for each category
+      amount: true,
     },
   });
 
-  // Fetch earnings similarly if needed
   const earningsBreakdown = await prisma.earning.groupBy({
     by: ['source'],
     _sum: {
@@ -18,7 +16,6 @@ export async function GET() {
     },
   });
 
-  // Optional: Fetch budgets if you have them
   const budgetsBreakdown = await prisma.budget.groupBy({
     by: ['name'],
     _sum: {
@@ -26,7 +23,6 @@ export async function GET() {
     },
   });
 
-  // Calculate total amounts for expenses, earnings, and budgets
   const totalExpenses = expensesBreakdown.reduce(
     (acc, expense) => acc + expense._sum.amount,
     0

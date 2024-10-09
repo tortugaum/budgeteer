@@ -46,7 +46,6 @@ export default function Home() {
       router.push('/login');
     }
 
-    // Fetch expenses and earnings data from the backend
     const fetchData = async () => {
       try {
         const [expensesRes, earningsRes] = await Promise.all([
@@ -72,7 +71,6 @@ export default function Home() {
         }));
         setSpendingBreakdown(formattedBreakdown);
 
-        // Calculate monthly data for expenses and earnings
         const monthlyExpenses = calculateMonthlyData(
           expensesRes.data,
           'expense'
