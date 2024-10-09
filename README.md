@@ -10,11 +10,24 @@ Budgeteer is a financial management application that helps users manage and moni
 - **Budget Planning:** Set budgets and plan your financial goals. 📝
 - **Visual Reports:** View your financial information with easy-to-understand charts and graphs. 📈
 
-## Screenshots 📸
 
-_(Place screenshots here)_
+## 📸 Screenshots
 
----
+Here are some screenshots showcasing the Login, Expenses, and Graphs in the Budgeteer app:
+
+### 🖼️ Login Page:
+![Login Screenshot](https://github.com/user-attachments/assets/2d092eba-f6f7-4859-9740-cda2428eaf16)
+)
+
+### 💸 Expenses Page:
+![Expenses Screenshot](https://github.com/user-attachments/assets/3422dffd-9eba-4dcd-b72d-5e6f11195fd6)
+
+
+### 📊 Graphs Overview:
+![Graphs Screenshot](https://github.com/user-attachments/assets/317f8e66-bafc-4efa-b251-9d101f2d3eb0)
+
+
+These screenshots help visualize the user interface and key features of the Budgeteer app.
 
 ## Getting Started 🚀
 
